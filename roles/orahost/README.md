@@ -44,6 +44,7 @@ Role to configure the hostsystem for ansible-oracle
   - [old_ssh_config](#old_ssh_config)
   - [oracle_asm_packages](#oracle_asm_packages)
   - [oracle_asm_packages_sles](#oracle_asm_packages_sles)
+  - [oracle_extra_firewall_ports](#oracle_extra_firewall_ports)
   - [oracle_groups](#oracle_groups)
   - [oracle_hugepages](#oracle_hugepages)
   - [oracle_hugepages_sysctl_file](#oracle_hugepages_sysctl_file)
@@ -515,6 +516,23 @@ oracle_asm_packages_sles:
   - oracleasm-kmp-default
   - oracleasm-kmp-xen
   - '{{ asmlib_rpm_sles }}'
+```
+
+### oracle_extra_firewall_ports
+
+Define additional ports to open on the OS firewall.
+
+#### Default value
+
+```YAML
+oracle_extra_firewall_ports: '[]'
+```
+
+#### Example usage
+
+```YAML
+oracle_extra_firewall_ports:
+  - 5500 # EM Express
 ```
 
 ### oracle_groups
