@@ -31,6 +31,7 @@ Role to configure the hostsystem for ansible-oracle
   - [extra_hugepages_per_instance](#extra_hugepages_per_instance)
   - [extrarepos_disabled](#extrarepos_disabled)
   - [extrarepos_enabled](#extrarepos_enabled)
+  - [firewall_open_ports](#firewall_open_ports)
   - [firewall_service](#firewall_service)
   - [grid_users](#grid_users)
   - [host_fs_layout](#host_fs_layout)
@@ -266,6 +267,8 @@ configure_ssh: false
 
 ### disable_firewall
 
+Should the Linux firewall be disabled? Only applicable to RHEL/OL at the moment.
+
 #### Default value
 
 ```YAML
@@ -357,6 +360,16 @@ extrarepos_disabled: '[]'
 ```YAML
 extrarepos_enabled: "{%- if ansible_distribution == 'OracleLinux' -%}ol{{ ansible_distribution_major_version
   }}_addons{%- else -%}{%- endif %}"
+```
+
+### firewall_open_ports
+
+Should the Listener ports be opened on the Linux firewall? Only applicable to RHEL/OL at the moment.
+
+#### Default value
+
+```YAML
+firewall_open_ports: false
 ```
 
 ### firewall_service
@@ -871,6 +884,8 @@ transparent_hugepage_disable_by_grub: false
 **_hostfs_**
 
 **_hugepages_**
+
+**_iptables,firewalld_**
 
 **_molecule-idempotence-notest_**
 
